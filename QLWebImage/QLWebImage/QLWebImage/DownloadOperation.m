@@ -10,4 +10,13 @@
 
 @implementation DownloadOperation
 
+- (void)main {
+    
+    NSLog(@"%@", [NSThread currentThread]);
+    
+    
+    
+}
+
+
 @end
