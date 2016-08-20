@@ -8,6 +8,18 @@
 
 #import "DownloadOperation.h"
 
+@interface DownloadOperation ()
+
+/**
+ *  接收控制器传入的图片的地址
+ */
+@property(copy, nonatomic) NSString *URLString;
+
+
+@property(copy, nonatomic) void(^finishBlock)(UIImage *image);
+
+@end
+
 
 @implementation DownloadOperation
 
@@ -34,6 +46,17 @@
     }
     
     
+}
+
++ (instancetype)downloadWithURLString:(NSString *)URLString finishBlock:(void (^)(UIImage *))finishBlock {
+    
+    DownloadOperation *op = [[DownloadOperation alloc] init];
+    
+    op.URLString = URLString;
+    
+    op.finishBlock = finishBlock;
+    
+    return op;
 }
 
 

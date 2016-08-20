@@ -11,12 +11,9 @@
 
 @interface DownloadOperation : NSOperation
 
-/**
- *  接收控制器传入的图片的地址
- */
-@property(copy, nonatomic) NSString *URLString;
 
 
-@property(copy, nonatomic) void(^finishBlock)(UIImage *image);
+
++ (instancetype)downloadWithURLString:(NSString *)URLString finishBlock:(void(^)(UIImage *image))finishBlock;
 
 @end
