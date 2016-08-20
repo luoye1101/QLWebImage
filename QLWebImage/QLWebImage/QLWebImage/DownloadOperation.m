@@ -8,12 +8,30 @@
 
 #import "DownloadOperation.h"
 
+
 @implementation DownloadOperation
 
 - (void)main {
     
-    NSLog(@"%@", [NSThread currentThread]);
+//    NSLog(@"%@", self.URLString);
     
+    //下载图片
+    NSURL *url = [NSURL URLWithString:self.URLString];
+    
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    UIImage *image = [UIImage imageWithData:data];
+    
+    //图片下载完后传递到vc
+    if (self.finishBlock != nil) {
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            self.finishBlock(image);
+            
+        }];
+        
+    }
     
     
 }

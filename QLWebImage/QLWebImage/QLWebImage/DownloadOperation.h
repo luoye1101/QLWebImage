@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface DownloadOperation : NSOperation
+
+/**
+ *  接收控制器传入的图片的地址
+ */
+@property(copy, nonatomic) NSString *URLString;
+
+
+@property(copy, nonatomic) void(^finishBlock)(UIImage *image);
 
 @end

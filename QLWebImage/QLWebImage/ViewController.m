@@ -29,6 +29,20 @@
     //实例化自定义操作
     DownloadOperation *op = [[DownloadOperation alloc] init];
     
+    op.URLString = @"http://a.hiphotos.baidu.com/image/pic/item/c8ea15ce36d3d5390eb69ac33887e950352ab023.jpg";
+    
+    [op setFinishBlock:^(UIImage *image) {
+        
+        NSLog(@"%@  %@", image, [NSThread currentThread]);
+        
+    }];
+    
+//    void(^finishBlock)(UIImage *image) = ^(UIImage *image) {
+//
+//    };
+//    
+//    op.finishBlock = finishBlock;
+    
     //把自定义操作添加到队列
     [_queue addOperation:op];
     
