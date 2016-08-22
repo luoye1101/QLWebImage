@@ -34,6 +34,8 @@
     
     UIImage *image = [UIImage imageWithData:data];
     
+    NSAssert(self.finishBlock != nil, @"下载完成的回调不能为空!");
+    
     //图片下载完后传递到vc
     if (self.finishBlock != nil) {
         
